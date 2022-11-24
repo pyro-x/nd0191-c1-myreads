@@ -1,2 +1,4 @@
-starter/src/Book.js
 starter/yarn.lock
+package-lock.json
+.gitignore
+node_modules

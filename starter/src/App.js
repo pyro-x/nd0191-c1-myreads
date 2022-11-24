@@ -15,7 +15,11 @@ function App () {
   }, [])
 
   const moveBookToShelf = ( book, shelfName) => {
-    setBooks ( books.map (b => b.id === book.id) ? {...book, shelf:shelfName} : book) 
+    console.log ('shelf name',shelfName)
+    console.log ('book',book)
+    const mappedBooks = books.map ((b) => (b.id === book.id ? {...b, shelf:shelfName} : b));
+    console.log ('mappedBooks', mappedBooks)
+    setBooks ( mappedBooks ) 
   }
   return (
     <div className="app">

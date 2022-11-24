@@ -4,7 +4,7 @@ const Shelf = ({name, books, onBookShelfChange,shelfs}) => {
 
     return (
         <div className="bookshelf">
-                <h2 className="bookshelf-title">{name}</h2>
+                <h2 className="bookshelf-title">{shelfs[name]}</h2>
                 <div className="bookshelf-books">
                   <ol className="books-grid">
                     {

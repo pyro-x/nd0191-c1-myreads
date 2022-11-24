@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react';
 
-const Book = ({book,shelfs}) => {
-    console.log ("book",book);
-    const [shelf,setShelf] = useState('book.shelf')
-
+const Book = ({book,shelfs,onBookShelfChange}) => {
+    const [shelf,setShelf] = useState(book.shelf)
     const handleChange = (event) => {
-        setShelf(event.target.value)
+        if (shelf!==event.target.value)
+        {
+            const newShelf = event.target.value;
+            setShelf(newShelf); // first we update the sate 
+            onBookShelfChange (book,newShelf) // trigger the onBookShelchange method from above 
+        }
     }
 
     return (
@@ -42,7 +45,9 @@ const Book = ({book,shelfs}) => {
 
 Book.propTypes = {
     book:  PropTypes.array.isRequired,
-    shelfs: PropTypes.object.isRequired // contains the available shelfs
+    shelfs: PropTypes.object.isRequired ,// contains the available shelfs
+    onBookShelfChange: PropTypes.func.isRequired,
+
 
 }
 export default Book;

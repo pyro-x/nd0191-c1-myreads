@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import Shelf from "./Shelf";
 
 const Bookshelf = ({books, onBookShelfChange}) => {
-    console.log (books)
     const shelfs = { currentlyReading:'Currently reading',read:'Read',wantToRead: 'Want to read',none: 'None'}
     return (<div className="list-books-content">
         {

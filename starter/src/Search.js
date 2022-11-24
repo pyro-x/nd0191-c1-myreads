@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom"
 const Search = () => {
-    (
+    return (
         <div className="search-books">
             <div className="search-books-bar">
-            <a
+            <Link
                 className="close-search"
-                onClick={() => true}
+                to="/"
             >
                 Close
-            </a>
+            </Link>
             <div className="search-books-input-wrapper">
                 <input
                 type="text"

@@ -1,5 +1,4 @@
-starter/yarn.lock
-package-lock.json
-.gitignore
 node_modules
-starter/yarn.lock
+node_modules/*
+package-lock.json
+yarn.lock

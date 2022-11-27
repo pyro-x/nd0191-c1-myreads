@@ -19,6 +19,7 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "semi": 2,
         "react/jsx-uses-react": "off",
         "react/react-in-jsx-scope": "off",
         'space-before-function-paren': [2, {
@@ -27,4 +28,4 @@ module.exports = {
         }],
     }
     
-}
+};

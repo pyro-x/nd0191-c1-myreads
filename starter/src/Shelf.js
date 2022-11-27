@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import Book from './Book'
+import PropTypes from 'prop-types';
+import Book from './Book';
 const Shelf = ({name, books, onBookShelfChange,shelfs}) => {
 
     return (
@@ -13,12 +13,12 @@ const Shelf = ({name, books, onBookShelfChange,shelfs}) => {
                   </ol>
                 </div>
               </div>
-    )
+    );
 };
 Shelf.propTypes = {
     name: PropTypes.string.isRequired,
     books:  PropTypes.array.isRequired,
     onBookShelfChange: PropTypes.func.isRequired,
     shelfs: PropTypes.object.isRequired // contains the available shelfs
-}
+};
 export default Shelf;

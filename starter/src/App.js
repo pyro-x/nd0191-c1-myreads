@@ -18,8 +18,17 @@ function App () {
   }, [])
 
   const moveBookToShelf = ( book, shelfName) => {
+    console.log ("book", book)
 
-    const mappedBooks = books.map ((b) => (b.id === book.id ? {...b, shelf:shelfName} : b));
+    //TODO ADD LOGIC TO HANDLE WHENEVER THE BOOK IS NOT ON OUR BOOKSHELF
+    let mappedBooks = []
+    // Modify the shelf for an existing book 
+    if (books.filter ( b => b.id === book.id).length > 0 )
+      mappedBooks = books.map ((b) => (b.id === book.id ? {...book, shelf:shelfName} : b));
+    else
+      mappedBooks = books.concat (book);
+    console.log ("mappedBooks", mappedBooks)
+
     setBooks ( mappedBooks ) 
     // Dont forget to update the book shelf on the server 
     const update = async () => {
@@ -28,13 +37,15 @@ function App () {
     update ();
 
   }
+  const shelfs = { currentlyReading:'Currently reading',read:'Read',wantToRead: 'Want to read'}
+
   return (
     <div className="app">
        <Routes>
       <Route exact path="/" element={
-        <Bookshelf books={books} onBookShelfChange={moveBookToShelf}/>
+        <Bookshelf shelfs={shelfs} books={books} onBookShelfChange={moveBookToShelf}/>
       }/>
-      <Route path="/search" element={<Search />}/>
+      <Route path="/search"  element={<Search shelfs={shelfs} onBookShelfChange={moveBookToShelf}/>}/>
     </Routes>
     </div>
   );

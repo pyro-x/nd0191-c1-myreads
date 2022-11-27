@@ -2,8 +2,7 @@ import PropTypes from 'prop-types'
 import Shelf from "./Shelf";
 import { Link } from "react-router-dom"
 
-const Bookshelf = ({books, onBookShelfChange}) => {
-    const shelfs = { currentlyReading:'Currently reading',read:'Read',wantToRead: 'Want to read'}
+const Bookshelf = ({books, shelfs, onBookShelfChange}) => {
     return (<div className="list-books">
                 <div className="list-books-title">
                 <h1>MyReads</h1>
@@ -23,6 +22,7 @@ const Bookshelf = ({books, onBookShelfChange}) => {
 
 Bookshelf.propTypes = {
     books:  PropTypes.array.isRequired,
+    shelfs: PropTypes.object.isRequired,
     onBookShelfChange: PropTypes.func.isRequired
 }
 export default Bookshelf;

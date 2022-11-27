@@ -18,16 +18,13 @@ function App () {
   }, []);
 
   const moveBookToShelf = ( book, shelfName) => {
-    console.log ("book", book);
 
-    //TODO ADD LOGIC TO HANDLE WHENEVER THE BOOK IS NOT ON OUR BOOKSHELF
     let mappedBooks = [];
     // Modify the shelf for an existing book 
     if (books.filter ( b => b.id === book.id).length > 0 )
       mappedBooks = books.map ((b) => (b.id === book.id ? {...book, shelf:shelfName} : b));
     else // If not found is a new book add it with the correspoding shelf
       mappedBooks = books.concat ({...book,shelf:shelfName });
-    console.log ("mappedBooks", mappedBooks);
 
     setBooks ( mappedBooks ); 
     // Dont forget to update the book shelf on the server 

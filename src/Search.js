@@ -20,7 +20,6 @@ const Search = ({shelfs, books, onBookShelfChange }) => {
             if (search!=='')
             {
                 const res=  await BooksApi.search(search,20);
-                console.log ('search res',res);
 
                 if (res.error)
                     setResults([]);
@@ -32,7 +31,6 @@ const Search = ({shelfs, books, onBookShelfChange }) => {
                         const bookFromLibrary = books.filter ((bookFromLibrary) => (bookFromLibrary.id === bookFromSearch.id));
                         return  bookFromLibrary.length > 0 ? {...bookFromSearch, shelf: bookFromLibrary[0].shelf} : bookFromSearch;
                     });
-                    console.log ("mappedBooks:", mappedBooks);
                     setResults(mappedBooks);
                 }
             }

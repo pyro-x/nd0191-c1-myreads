@@ -1,6 +1,6 @@
 # MyReads Project
 
-This project is my implementation dor the My Reads apps the the final assessment project for Udacity's React Fundamentals course.  
+This project is my implementation for the My Reads apps the the final assessment project for Udacity's React Fundamentals course.  
 
 MyReads is a bookshelf that allows the user to categorize books in different shelfs, and to search for new books using the provided book search api 
 

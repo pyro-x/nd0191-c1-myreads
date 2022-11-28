@@ -10,28 +10,17 @@ import {Route, Routes} from "react-router-dom";
 function App () {
   const [books, setBooks] = useState ([]);
   useEffect(() => {
-    const getBooks = async () => { 
-      const res = await BooksApi.getAll();
-      setBooks(res);
-    };
-    getBooks();
+    BooksApi.getAll().then((books) => {
+      setBooks(books);
+    });
   }, []);
 
   const moveBookToShelf = ( book, shelfName) => {
 
-    let mappedBooks = [];
-    // Modify the shelf for an existing book 
-    if (books.filter ( b => b.id === book.id).length > 0 )
-      mappedBooks = books.map ((b) => (b.id === book.id ? {...book, shelf:shelfName} : b));
-    else // If not found is a new book add it with the correspoding shelf
-      mappedBooks = books.concat ({...book,shelf:shelfName });
-
-    setBooks ( mappedBooks ); 
-    // Dont forget to update the book shelf on the server 
-    const update = async () => {
-      BooksApi.update(book, shelfName);
-    };
-    update ();
+    BooksApi.update(book,shelfName).then (() => {
+      book.shelf = shelfName;
+      setBooks(books.filter((b) => b.id !== book.id).concat(book));
+    });
 
   };
   const shelfs = { currentlyReading:'Currently reading',read:'Read',wantToRead: 'Want to read'};

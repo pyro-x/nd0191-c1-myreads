@@ -27,14 +27,14 @@ const Book = ({book,shelfs,onBookShelfChange}) => {
             ></div>
             <div className="book-shelf-changer">
                 <select value={shelf} onChange={handleChange}>
-                <option value="none" disabled>
+                <option value="moveto" disabled>
                     Move to...
                 </option>
                 { 
                     Object.keys(shelfs).map ((s) => ( 
                         <option key={s} value={s}>{shelfs[s]}</option>
                     ))
-                }
+                } <option key="none" value="none">None</option>
                 </select>
             </div>
             </div>
